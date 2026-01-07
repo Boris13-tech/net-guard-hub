@@ -1,171 +1,149 @@
-# 📚 Documentation - Académie Cyber & Réseaux
+# 📚 Documentation Technique - Académie Cyber & Réseaux
 
 ## 📋 Présentation du Projet
 
-**Académie Cyber & Réseaux** est un site web vitrine pour un organisme de formation spécialisé en cybersécurité. Le site présente les formations, événements, articles de blog et permet aux visiteurs de prendre contact.
+**Académie Cyber & Réseaux** est une plateforme web vitrine développée pour un organisme de formation spécialisé en cybersécurité. L'objectif est de présenter l'offre de formations, les événements, le blog et de faciliter la prise de contact avec les prospects.
 
 ---
 
 ## 🛠️ Stack Technique
 
-| Technologie | Version | Description |
-|-------------|---------|-------------|
-| **React** | 18.3.1 | Bibliothèque UI |
-| **TypeScript** | - | Typage statique |
-| **Vite** | - | Build tool et dev server |
-| **Tailwind CSS** | - | Framework CSS utilitaire |
-| **React Router DOM** | 6.26.2 | Routing client-side |
-| **shadcn/ui** | - | Composants UI accessibles |
-| **TanStack Query** | 5.56.2 | Gestion des requêtes async |
-| **Lucide React** | 0.462.0 | Icônes |
+J'ai choisi les technologies suivantes pour leur robustesse et leur maintenabilité :
+
+| Technologie | Version | Justification |
+|-------------|---------|---------------|
+| **React** | 18.3.1 | Composants réutilisables, écosystème mature |
+| **TypeScript** | - | Typage statique pour réduire les bugs |
+| **Vite** | - | Build ultra-rapide, HMR instantané |
+| **Tailwind CSS** | - | Développement CSS rapide et cohérent |
+| **React Router DOM** | 6.26.2 | Routing SPA standard |
+| **shadcn/ui** | - | Composants accessibles et personnalisables |
+| **TanStack Query** | 5.56.2 | Préparé pour les futures requêtes API |
+| **Lucide React** | 0.462.0 | Icônes légères et cohérentes |
 
 ---
 
-## 📁 Structure du Projet
+## 📁 Architecture du Projet
+
+J'ai organisé le code selon une architecture modulaire par fonctionnalité :
 
 ```
 src/
 ├── components/
 │   ├── blog/
-│   │   └── BlogCard.tsx          # Carte pour article de blog
+│   │   └── BlogCard.tsx          # Carte article de blog
 │   ├── contact/
-│   │   └── ContactForm.tsx       # Formulaire de contact/inscription
+│   │   └── ContactForm.tsx       # Formulaire contact/inscription
 │   ├── evenements/
-│   │   └── EventCard.tsx         # Carte pour événement
+│   │   └── EventCard.tsx         # Carte événement
 │   ├── formations/
-│   │   └── FormationCard.tsx     # Carte pour formation
+│   │   └── FormationCard.tsx     # Carte formation
 │   ├── home/
-│   │   ├── AboutSection.tsx      # Section "À propos"
-│   │   ├── CTASection.tsx        # Section appel à l'action
-│   │   ├── FeaturedFormations.tsx # Formations en vedette
+│   │   ├── AboutSection.tsx      # Section présentation
+│   │   ├── CTASection.tsx        # Appel à l'action
+│   │   ├── FeaturedFormations.tsx # Formations vedettes
 │   │   ├── Hero.tsx              # Bannière principale
 │   │   ├── LatestBlogPosts.tsx   # Derniers articles
-│   │   ├── Testimonials.tsx      # Témoignages
-│   │   └── UpcomingEvents.tsx    # Événements à venir
+│   │   ├── Testimonials.tsx      # Témoignages clients
+│   │   └── UpcomingEvents.tsx    # Prochains événements
 │   ├── layout/
 │   │   ├── Footer.tsx            # Pied de page
-│   │   ├── Layout.tsx            # Layout principal
-│   │   └── Navbar.tsx            # Barre de navigation
+│   │   ├── Layout.tsx            # Layout global
+│   │   └── Navbar.tsx            # Navigation
 │   └── ui/
-│       ├── button.tsx            # Composant bouton
-│       ├── card.tsx              # Composant carte
+│       ├── button.tsx            # Bouton
+│       ├── card.tsx              # Carte
 │       ├── SectionTitle.tsx      # Titre de section
-│       ├── RevolutPaymentButton.tsx # Bouton paiement Revolut
-│       └── [autres composants shadcn...]
+│       └── [composants UI...]
 ├── pages/
-│   ├── Index.tsx                 # Page d'accueil
+│   ├── Index.tsx                 # Accueil
 │   ├── Formations.tsx            # Catalogue formations
-│   ├── Evenements.tsx            # Liste événements
-│   ├── Blog.tsx                  # Articles de blog
+│   ├── Evenements.tsx            # Événements
+│   ├── Blog.tsx                  # Blog
 │   ├── APropos.tsx               # À propos
 │   ├── Contact.tsx               # Contact
-│   └── NotFound.tsx              # Page 404
+│   └── NotFound.tsx              # 404
 ├── hooks/
-│   ├── use-mobile.tsx            # Détection mobile
-│   └── use-toast.ts              # Notifications toast
+│   ├── use-mobile.tsx            # Hook détection mobile
+│   └── use-toast.ts              # Hook notifications
 ├── lib/
-│   └── utils.ts                  # Utilitaires (cn, etc.)
-├── App.tsx                       # Configuration routes
-├── index.css                     # Styles globaux + tokens
+│   └── utils.ts                  # Fonctions utilitaires
+├── App.tsx                       # Configuration routing
+├── index.css                     # Tokens design + styles globaux
 └── main.tsx                      # Point d'entrée
 ```
+
+### Choix d'architecture
+
+- **Séparation par domaine** : Chaque fonctionnalité (formations, blog, événements) a son propre dossier de composants
+- **Composants UI réutilisables** : Le dossier `ui/` contient les briques de base
+- **Layout centralisé** : Un seul composant Layout wrappe toutes les pages
 
 ---
 
 ## 🎨 Système de Design
 
-### Palette de Couleurs
+### Identité Visuelle
 
-| Token | Valeur | Usage |
-|-------|--------|-------|
-| `--primary` | `210 100% 20%` | Bleu cyber principal |
-| `--accent` | `45 100% 50%` | Or/Jaune accent |
-| `cyber` | `#003366` | Bleu foncé |
-| `cyber-light` | `#0056b3` | Bleu clair |
-| `cyber-gold` | `#FFD700` | Or |
-| `cyber-blue` | `#1E90FF` | Bleu vif |
-| `cyber-darkblue` | `#00264D` | Bleu très foncé |
+J'ai créé une identité visuelle "cyber" avec une palette professionnelle :
+
+| Couleur | Code | Usage |
+|---------|------|-------|
+| Bleu Cyber | `#003366` | Couleur principale, headers, textes importants |
+| Bleu Clair | `#0056b3` | Hovers, liens |
+| Or | `#FFD700` | Accents, CTA, éléments premium |
+| Bleu Vif | `#1E90FF` | Éléments secondaires, décorations |
+| Bleu Foncé | `#00264D` | Backgrounds sombres, dégradés |
+
+### Tokens CSS (index.css)
+
+```css
+:root {
+  --primary: 210 100% 20%;      /* Bleu cyber */
+  --accent: 45 100% 50%;         /* Or */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+}
+```
 
 ### Classes Utilitaires Personnalisées
 
 ```css
-.cyber-card        /* Carte avec bordure dégradée supérieure */
-.cyber-button      /* Bouton bleu principal */
-.cyber-button-gold /* Bouton or/jaune */
-.section-title     /* Titre avec underline doré */
-.container-custom  /* Container avec padding responsive */
-.gradient-text     /* Texte dégradé or → bleu */
+.cyber-card        /* Carte avec bordure dégradée en haut */
+.cyber-button      /* Bouton principal bleu */
+.cyber-button-gold /* Bouton accent doré */
+.section-title     /* Titre avec underline doré animé */
+.container-custom  /* Container responsive personnalisé */
+.gradient-text     /* Texte avec dégradé or → bleu */
 ```
 
 ### Typographie
 
-- **Police principale** : Exo 2 (Google Fonts)
-- **Titres** : `font-bold text-cyber`
-- **Corps** : Exo 2 regular
+- **Police** : Exo 2 (Google Fonts) - Choisie pour son aspect moderne et technique
+- **Hiérarchie** : Titres en bold + couleur cyber, corps en regular
 
 ---
 
-## 🗺️ Routes
+## 🗺️ Structure des Routes
 
-| Route | Page | Description |
-|-------|------|-------------|
-| `/` | Index | Page d'accueil |
-| `/formations` | Formations | Catalogue des formations avec filtres |
-| `/evenements` | Evenements | Liste des événements |
-| `/blog` | Blog | Articles de blog |
-| `/a-propos` | APropos | Présentation de l'académie |
-| `/contact` | Contact | Formulaire de contact |
-| `*` | NotFound | Page 404 |
+| Route | Composant | Description |
+|-------|-----------|-------------|
+| `/` | `Index` | Page d'accueil avec hero, formations, témoignages |
+| `/formations` | `Formations` | Catalogue filtrable par niveau |
+| `/evenements` | `Evenements` | Liste des événements à venir |
+| `/blog` | `Blog` | Articles et actualités |
+| `/a-propos` | `APropos` | Présentation de l'académie |
+| `/contact` | `Contact` | Formulaire de contact |
+| `*` | `NotFound` | Page 404 personnalisée |
 
 ---
 
-## 🧩 Composants Principaux
+## 🧩 Composants Clés
 
-### Layout (`src/components/layout/`)
+### FormationCard
 
-#### `Layout.tsx`
-Wrapper global avec Navbar et Footer.
+Composant carte pour afficher une formation :
 
-#### `Navbar.tsx`
-- Navigation responsive (desktop/mobile)
-- Menu hamburger sur mobile
-- Logo avec icône Shield
-- Lien CTA "Contact"
-
-#### `Footer.tsx`
-- 4 colonnes : Logo, Liens, Contact, Newsletter
-- Réseaux sociaux
-- Mentions légales
-
-### Home (`src/components/home/`)
-
-#### `Hero.tsx`
-Bannière principale avec :
-- Titre animé
-- Boutons CTA
-- Image de présentation
-- Tags Blue Team / Red Team / SOC
-
-#### `FeaturedFormations.tsx`
-Affiche 3 formations en vedette.
-
-#### `Testimonials.tsx`
-Carousel de témoignages clients.
-
-#### `UpcomingEvents.tsx`
-Liste des prochains événements.
-
-### Formations (`src/components/formations/`)
-
-#### `FormationCard.tsx`
-Carte de formation avec :
-- Image
-- Badge niveau (Débutant/Intermédiaire/Avancé)
-- Durée
-- Description
-- Boutons action
-
-**Props** :
 ```typescript
 interface FormationProps {
   id: number;
@@ -178,14 +156,16 @@ interface FormationProps {
 }
 ```
 
-### Contact (`src/components/contact/`)
+**Fonctionnalités** :
+- Badge coloré selon le niveau (vert/bleu/violet)
+- Image avec effet hover
+- Durée affichée
+- Boutons d'action
 
-#### `ContactForm.tsx`
-Formulaire adaptable :
-- Mode "contact" : formulaire simple
-- Mode "inscription" : avec sélection de formation
+### ContactForm
 
-**Props** :
+Formulaire adaptable avec deux modes :
+
 ```typescript
 interface ContactFormProps {
   formType?: "contact" | "inscription";
@@ -194,77 +174,73 @@ interface ContactFormProps {
 }
 ```
 
+- **Mode contact** : Formulaire simple nom/email/message
+- **Mode inscription** : Ajoute un sélecteur de formation
+
+### Navbar
+
+Navigation responsive :
+- Desktop : Menu horizontal avec liens + CTA
+- Mobile : Menu hamburger avec overlay
+
 ---
 
 ## 📱 Responsive Design
 
-Le site utilise les breakpoints Tailwind standards :
-- `sm`: 640px
-- `md`: 768px
-- `lg`: 1024px
-- `xl`: 1280px
-- `2xl`: 1400px (container max)
+Le site est entièrement responsive avec les breakpoints suivants :
 
-La navigation bascule en mode hamburger sous `md` (768px).
+| Breakpoint | Taille | Adaptations |
+|------------|--------|-------------|
+| Mobile | < 768px | Menu hamburger, colonnes empilées |
+| Tablette | 768px - 1024px | Grilles 2 colonnes |
+| Desktop | > 1024px | Layout complet, grilles 3-4 colonnes |
 
 ---
 
-## 🚀 Développement
-
-### Installation
+## 🚀 Scripts de Développement
 
 ```bash
+# Installation des dépendances
 npm install
-```
 
-### Lancer en développement
-
-```bash
+# Serveur de développement
 npm run dev
-```
 
-### Build production
-
-```bash
+# Build de production
 npm run build
-```
 
-### Preview production
-
-```bash
+# Prévisualisation du build
 npm run preview
 ```
 
 ---
 
-## 📌 Points d'Amélioration Possibles
+## 📈 Évolutions Prévues
 
-1. **Backend** : Activer Lovable Cloud pour :
-   - Stockage des formations en base de données
-   - Gestion des inscriptions
-   - Authentification utilisateur
-   - Envoi d'emails
+### Court terme
+- [ ] Intégration d'un backend (base de données, authentification)
+- [ ] Formulaires fonctionnels avec envoi d'emails
+- [ ] Newsletter avec stockage des abonnés
 
-2. **Fonctionnalités** :
-   - Inscription aux formations
-   - Paiement en ligne
-   - Espace membre
-   - Newsletter fonctionnelle
+### Moyen terme
+- [ ] Espace membre pour les inscrits
+- [ ] Système de paiement en ligne
+- [ ] Gestion dynamique du contenu (CMS)
 
-3. **SEO** :
-   - Meta tags dynamiques
-   - Sitemap
-   - Schema.org (Course, Organization)
-
-4. **Performance** :
-   - Optimisation images
-   - Lazy loading
-   - Code splitting
+### SEO & Performance
+- [ ] Meta tags dynamiques par page
+- [ ] Sitemap XML automatique
+- [ ] Schema.org pour les formations
+- [ ] Optimisation des images (lazy loading, formats modernes)
 
 ---
 
-## 📞 Contact
+## 📞 Informations de Contact
 
 - **Email** : contact@academie-cyber.fr
 - **Téléphone** : +40 766 438 679
 - **Localisation** : Paris, France
+
+---
+
+*Documentation rédigée pour faciliter la maintenance et l'évolution du projet.*
