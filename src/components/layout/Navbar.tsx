@@ -39,8 +39,7 @@ const Navbar = () => {
               className="w-12 h-12 rounded-full shadow-lg group-hover:shadow-amber-500/25 transition-shadow"
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-white leading-none">LEGRANDSUP</h1>
-              <span className="text-xs text-white/60">Académie Cyber & Réseaux</span>
+              <h1 className="text-xl font-bold text-white leading-none">Académie Cyber & Réseaux</h1>
             </div>
           </Link>
 
