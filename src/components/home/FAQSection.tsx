@@ -8,7 +8,7 @@ import {
 
 const faqs = [
   {
-    question: "Quels sont les prérequis pour intégrer Cybersup ?",
+    question: "Quels sont les prérequis pour intégrer LegrandSup ?",
     answer: "Pour le Bachelor, un Bac+2 en informatique ou équivalent. Pour les Mastères, un Bac+3 minimum. Une forte motivation pour la cybersécurité est essentielle."
   },
   {
@@ -16,7 +16,7 @@ const faqs = [
     answer: "Oui, toutes nos formations sont proposées en alternance. Nous accompagnons également nos étudiants dans leur recherche d'entreprise."
   },
   {
-    question: "Quels sont les débouchés après Cybersup ?",
+    question: "Quels sont les débouchés après LegrandSup ?",
     answer: "Analyste SOC, Pentester, Consultant en sécurité, DPO, Architecte sécurité, Chef de projet IA... Plus de 30 métiers accessibles avec des salaires attractifs."
   },
   {

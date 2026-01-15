@@ -36,7 +36,7 @@ const Navbar = () => {
               <Shield className="w-7 h-7 text-cyber-dark" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-white leading-none">CYBERSUP</h1>
+              <h1 className="text-xl font-bold text-white leading-none">LEGRANDSUP</h1>
               <span className="text-xs text-white/60">Cybersécurité & IA</span>
             </div>
           </Link>

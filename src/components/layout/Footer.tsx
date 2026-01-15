@@ -16,12 +16,12 @@ const Footer = () => {
                 <Shield className="w-7 h-7 text-cyber-dark" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white">CYBERSUP</h2>
+                <h2 className="text-xl font-bold text-white">LEGRANDSUP</h2>
                 <span className="text-xs text-white/60">Cybersécurité & IA</span>
               </div>
             </Link>
             <p className="text-white/60 text-sm mb-6">
-              L'école supérieure de cybersécurité et d'IA. Formez-vous aux métiers de demain avec des experts reconnus.
+              LegrandSup - L'école supérieure de cybersécurité et d'IA. Formez-vous aux métiers de demain avec des experts reconnus.
             </p>
             <div className="flex gap-4">
               {[Linkedin, Twitter, Instagram, Youtube].map((Icon, i) => (
@@ -73,7 +73,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-cyber-gold mt-0.5" />
-                <span className="text-white/60 text-sm">contact@cybersup.fr</span>
+                <span className="text-white/60 text-sm">contact@legrandsup.fr</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-cyber-gold mt-0.5" />
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">© {currentYear} Cybersup. Tous droits réservés.</p>
+          <p className="text-white/40 text-sm">© {currentYear} LegrandSup. Tous droits réservés.</p>
           <div className="flex gap-6">
             {["Mentions légales", "Confidentialité", "CGV"].map((item) => (
               <Link key={item} to="#" className="text-white/40 hover:text-white/70 text-sm transition-colors">
