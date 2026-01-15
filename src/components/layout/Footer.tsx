@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-6">Formations</h3>
             <ul className="space-y-3">
-              {["Bachelor Cybersécurité", "Mastère Cybersécurité", "Mastère DPO & Compliance", "Mastère IA & Data"].map((item) => (
+              {["Analyste SOC", "Pentester Red Team", "Expert Réseaux & Sécurité", "IA & Cybersécurité"].map((item) => (
                 <li key={item}>
                   <Link to="/formations" className="text-white/60 hover:text-cyber-gold transition-colors text-sm">
                     {item}

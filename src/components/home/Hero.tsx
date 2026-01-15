@@ -22,27 +22,26 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
             <span className="w-2 h-2 bg-cyber-green rounded-full animate-pulse" />
-            <span className="text-sm font-medium">Admissions ouvertes 2025</span>
+            <span className="text-sm font-medium">Inscriptions ouvertes 2025</span>
           </div>
 
           {/* Main Title */}
           <h1 className="section-title text-white mb-6">
-            École supérieure de
+            Centre de formation en
             <br />
-            <span className="gradient-text-gold">cybersécurité</span> et d'
-            <span className="text-cyber-blue">IA</span>
+            <span className="gradient-text-gold">cybersécurité</span> et <span className="text-cyber-blue">IA</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl">
-            Formez-vous aux métiers de demain avec des experts reconnus. 
-            Bachelor et Mastère en alternance, 100% orientés emploi.
+            Formations intensives de 6 à 12 mois avec des experts reconnus. 
+            Devenez opérationnel rapidement et lancez votre carrière dans la cybersécurité.
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Link to="/contact">
               <Button className="cyber-button-gold text-lg px-10 py-6">
-                Candidater
+                S'inscrire
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -56,9 +55,9 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
             {[
-              { value: "100%", label: "Alternance" },
-              { value: "RNCP", label: "Titres reconnus" },
-              { value: "+125K", label: "Offres d'emploi" },
+              { value: "6-12", label: "Mois de formation" },
+              { value: "100%", label: "Pratique terrain" },
+              { value: "+90%", label: "Taux d'insertion" },
               { value: "45-55K€", label: "Salaire moyen" }
             ].map((stat, i) => (
               <div key={i} className="text-center">
@@ -71,7 +70,7 @@ const Hero = () => {
 
         {/* Partner Logos */}
         <div className="border-t border-white/10 pt-10">
-          <p className="text-center text-white/40 text-sm mb-6">Ils nous font confiance et emploient nos alternants</p>
+          <p className="text-center text-white/40 text-sm mb-6">Ils nous font confiance et recrutent nos apprenants</p>
           <div className="overflow-hidden">
             <div className="flex gap-12 animate-scroll">
               {[...partnerLogos, ...partnerLogos].map((logo, i) => (
