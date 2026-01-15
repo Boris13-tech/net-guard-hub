@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
+import logoAcr from "@/assets/logo-legrandsup.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,9 +13,11 @@ const Footer = () => {
           {/* Logo + About */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-cyber-gold to-amber-500 rounded-xl flex items-center justify-center">
-                <Shield className="w-7 h-7 text-cyber-dark" />
-              </div>
+              <img 
+                src={logoAcr} 
+                alt="Académie Cyber & Réseaux Logo" 
+                className="w-12 h-12 rounded-full"
+              />
               <div>
                 <h2 className="text-xl font-bold text-white">Académie Cyber & Réseaux</h2>
               </div>
