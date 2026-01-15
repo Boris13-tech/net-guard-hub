@@ -1,14 +1,11 @@
-
 import React, { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import SectionTitle from "@/components/ui/SectionTitle";
 import BlogCard, { BlogPostProps } from "@/components/blog/BlogCard";
 import { Button } from "@/components/ui/button";
-import { SearchIcon } from "lucide-react";
+import { Search, Mail } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Blog: React.FC = () => {
-  // État pour stocker les articles
   const [blogPosts] = useState<BlogPostProps[]>([
     {
       id: 1,
@@ -111,17 +108,14 @@ const Blog: React.FC = () => {
     }
   ]);
 
-  // État pour la recherche
   const [searchTerm, setSearchTerm] = useState("");
   
-  // Filtrer par catégorie
   const tendances = blogPosts.filter(post => post.category === "Tendances");
   const blueTeam = blogPosts.filter(post => post.category === "Blue Team");
   const redTeam = blogPosts.filter(post => post.category === "Red Team");
   const menaces = blogPosts.filter(post => post.category === "Menaces");
   const infrastructure = blogPosts.filter(post => post.category === "Infrastructure" || post.category === "Architecture");
   
-  // Filtrer par recherche
   const filteredPosts = searchTerm 
     ? blogPosts.filter(post => 
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -133,11 +127,22 @@ const Blog: React.FC = () => {
   return (
     <Layout>
       {/* Hero section */}
-      <section className="bg-cyber text-white py-20">
-        <div className="container-custom">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold mb-6">Blog & Actualités Cyber</h1>
-            <p className="text-xl mb-8 opacity-90">
+      <section className="relative cyber-gradient text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-cyber-blue/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 -left-32 w-96 h-96 bg-cyber-gold/20 rounded-full blur-[120px]" />
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+              <span className="w-2 h-2 bg-cyber-green rounded-full animate-pulse" />
+              <span className="text-sm font-medium">Actualités & Ressources</span>
+            </div>
+            
+            <h1 className="section-title text-white mb-6">
+              Blog <span className="gradient-text-gold">Cybersécurité</span>
+            </h1>
+            <p className="text-xl text-white/70 mb-8">
               Restez informé des dernières tendances, menaces et bonnes pratiques 
               en matière de cybersécurité grâce à nos articles et analyses.
             </p>
@@ -147,26 +152,27 @@ const Blog: React.FC = () => {
               <input
                 type="text"
                 placeholder="Rechercher un article..."
-                className="w-full pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyber-gold text-gray-800"
+                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-cyber-gold transition-colors"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-white/40" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Articles avec filtres */}
-      <section className="py-20">
+      <section className="py-20 bg-cyber-dark">
         <div className="container-custom">
           {searchTerm ? (
             <>
-              <SectionTitle
-                title={`Résultats de recherche pour "${searchTerm}"`}
-                subtitle={`${filteredPosts.length} article(s) trouvé(s)`}
-                centered
-              />
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  Résultats pour "<span className="text-cyber-gold">{searchTerm}</span>"
+                </h2>
+                <p className="text-white/60">{filteredPosts.length} article(s) trouvé(s)</p>
+              </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPosts.map((post) => (
@@ -175,9 +181,12 @@ const Blog: React.FC = () => {
               </div>
               
               {filteredPosts.length === 0 && (
-                <div className="text-center py-10">
-                  <p className="text-gray-500 mb-4">Aucun article ne correspond à votre recherche.</p>
-                  <Button variant="outline" onClick={() => setSearchTerm("")}>
+                <div className="text-center py-16">
+                  <p className="text-white/50 mb-6">Aucun article ne correspond à votre recherche.</p>
+                  <Button 
+                    className="cyber-button-outline"
+                    onClick={() => setSearchTerm("")}
+                  >
                     Voir tous les articles
                   </Button>
                 </div>
@@ -185,21 +194,20 @@ const Blog: React.FC = () => {
             </>
           ) : (
             <>
-              <SectionTitle
-                title="Nos derniers articles"
-                subtitle="Découvrez nos analyses et conseils pour renforcer votre posture de sécurité."
-                centered
-              />
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-white mb-2">Nos derniers articles</h2>
+                <p className="text-white/60">Découvrez nos analyses et conseils pour renforcer votre posture de sécurité.</p>
+              </div>
 
-              <Tabs defaultValue="all" className="w-full mt-8">
-                <div className="flex justify-center mb-8 overflow-x-auto pb-2">
-                  <TabsList>
-                    <TabsTrigger value="all">Tous</TabsTrigger>
-                    <TabsTrigger value="tendances">Tendances</TabsTrigger>
-                    <TabsTrigger value="blue-team">Blue Team</TabsTrigger>
-                    <TabsTrigger value="red-team">Red Team</TabsTrigger>
-                    <TabsTrigger value="menaces">Menaces</TabsTrigger>
-                    <TabsTrigger value="infrastructure">Infrastructure</TabsTrigger>
+              <Tabs defaultValue="all" className="w-full">
+                <div className="flex justify-center mb-10 overflow-x-auto pb-2">
+                  <TabsList className="bg-white/5 border border-white/10 p-1">
+                    <TabsTrigger value="all" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Tous</TabsTrigger>
+                    <TabsTrigger value="tendances" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Tendances</TabsTrigger>
+                    <TabsTrigger value="blue-team" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Blue Team</TabsTrigger>
+                    <TabsTrigger value="red-team" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Red Team</TabsTrigger>
+                    <TabsTrigger value="menaces" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Menaces</TabsTrigger>
+                    <TabsTrigger value="infrastructure" className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-white/70">Infrastructure</TabsTrigger>
                   </TabsList>
                 </div>
 
@@ -257,27 +265,34 @@ const Blog: React.FC = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
+      <section className="py-20 cyber-gradient relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyber-gold/10 rounded-full blur-[150px]" />
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-cyber mb-4">Restez informé</h2>
-            <p className="text-gray-600 mb-6">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-cyber-gold/20 flex items-center justify-center">
+              <Mail className="w-8 h-8 text-cyber-gold" />
+            </div>
+            
+            <h2 className="text-3xl font-bold text-white mb-4">Restez informé</h2>
+            <p className="text-white/60 mb-8">
               Abonnez-vous à notre newsletter pour recevoir nos derniers articles et actualités en cybersécurité.
             </p>
             
-            <form className="flex flex-col sm:flex-row gap-2">
+            <form className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Votre adresse email"
-                className="flex-grow px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyber"
+                className="flex-grow px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-cyber-gold transition-colors"
                 required
               />
-              <Button className="cyber-button">
+              <Button className="cyber-button-gold px-8">
                 S'abonner
               </Button>
             </form>
             
-            <p className="text-xs text-gray-500 mt-3">
+            <p className="text-xs text-white/40 mt-4">
               En vous inscrivant, vous acceptez de recevoir des emails de notre part. 
               Vous pourrez vous désabonner à tout moment.
             </p>
