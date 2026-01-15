@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Clock, Users, BarChart } from "lucide-react";
+import { Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RevolutPaymentButton from "@/components/ui/RevolutPaymentButton";
 
@@ -24,37 +24,47 @@ const FormationCard: React.FC<FormationProps> = ({
   const getLevelColor = () => {
     switch (level) {
       case "Débutant":
-        return "bg-green-100 text-green-800";
+        return "bg-green-500/20 text-green-400 border-green-500/30";
       case "Intermédiaire":
-        return "bg-blue-100 text-blue-800";
+        return "bg-blue-500/20 text-blue-400 border-blue-500/30";
       case "Avancé":
-        return "bg-purple-100 text-purple-800";
+        return "bg-purple-500/20 text-purple-400 border-purple-500/30";
       default:
-        return "bg-gray-100 text-gray-800";
+        return "bg-gray-500/20 text-gray-400 border-gray-500/30";
     }
   };
 
   return (
-    <div className="cyber-card hover:shadow-lg transition-shadow duration-300">
-      <div className="h-48 overflow-hidden">
+    <div className="group cyber-card overflow-hidden hover:border-cyber-gold/50 transition-all duration-300">
+      <div className="h-48 overflow-hidden relative">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-      </div>
-      <div className="p-6">
-        <div className="flex justify-between items-center mb-3">
-          <span className={`text-sm px-3 py-1 rounded-full font-medium ${getLevelColor()}`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark via-transparent to-transparent"></div>
+        <div className="absolute top-3 left-3">
+          <span className={`text-xs px-3 py-1 rounded-full font-medium border ${getLevelColor()}`}>
             {level}
           </span>
-          <div className="flex items-center text-cyber-light">
-            <Clock size={16} className="mr-1" />
-            <span className="text-sm">{duration}</span>
+        </div>
+      </div>
+      <div className="p-6">
+        <div className="flex items-center gap-4 mb-3 text-sm">
+          <div className="flex items-center text-gray-400">
+            <Clock size={14} className="mr-1 text-cyber-gold" />
+            <span>{duration}</span>
+          </div>
+          <div className="flex items-center text-gray-400">
+            <Award size={14} className="mr-1 text-cyber-gold" />
+            <span>Certifiant</span>
           </div>
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-cyber">{title}</h3>
-        <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
+        
+        <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-cyber-gold transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-400 mb-4 line-clamp-3 text-sm">{description}</p>
         
         <div className="space-y-3 mt-auto">
           <Button className="cyber-button w-full">
