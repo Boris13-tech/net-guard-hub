@@ -8,7 +8,7 @@ import {
 
 const faqs = [
   {
-    question: "Quels sont les prérequis pour intégrer LegrandSup ?",
+    question: "Quels sont les prérequis pour intégrer l'Académie Cyber & Réseaux ?",
     answer: "Nos formations sont accessibles à partir du niveau Bac. Une appétence pour l'informatique et la sécurité est recommandée. Certaines formations avancées nécessitent des bases en réseaux ou programmation."
   },
   {
@@ -20,7 +20,7 @@ const faqs = [
     answer: "Oui, nos formations préparent aux certifications professionnelles reconnues (CompTIA Security+, CEH, OSCP...) et délivrent une attestation de compétences valorisée par les entreprises."
   },
   {
-    question: "Quels sont les débouchés après LegrandSup ?",
+    question: "Quels sont les débouchés après l'Académie Cyber & Réseaux ?",
     answer: "Analyste SOC, Pentester, Administrateur sécurité, Consultant cybersécurité, Ingénieur réseau... Plus de 90% de nos apprenants trouvent un emploi dans les 3 mois suivant la formation."
   },
   {
