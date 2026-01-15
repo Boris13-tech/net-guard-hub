@@ -2,93 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 210 100% 20%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 70% 15%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 45%;
 
     --accent: 45 100% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 220 70% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 70% 40%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Cybersup theme colors */
+    --cyber-dark: 220 25% 8%;
+    --cyber-darker: 220 30% 5%;
+    --cyber-blue: 210 100% 50%;
+    --cyber-gold: 45 100% 50%;
+    --cyber-purple: 260 70% 60%;
+    --cyber-green: 160 70% 45%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 45 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 220 10% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 220 10% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 220 10% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 220 25% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 10% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 220 10% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 10% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 45 100% 50%;
+
+    --sidebar-background: 220 30% 5%;
+    --sidebar-foreground: 220 10% 90%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 220 10% 90%;
+    --sidebar-border: 220 20% 12%;
+    --sidebar-ring: 45 100% 50%;
   }
 }
 
@@ -97,47 +99,134 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Exo 2', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-cyber;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyber-gold via-cyber-blue to-cyber-purple;
   }
   
-  .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-cyber-gold to-cyber-blue;
+  .gradient-text-gold {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-500;
+  }
+
+  .cyber-gradient {
+    @apply bg-gradient-to-br from-cyber-dark via-cyber-darker to-cyber-dark;
   }
   
   .cyber-card {
-    @apply rounded-lg border border-cyber/10 shadow-md bg-white relative overflow-hidden;
-    background-image: radial-gradient(circle at 100% 100%, rgba(0, 51, 102, 0.03) 0%, transparent 50%);
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm relative overflow-hidden transition-all duration-300;
+  }
+  
+  .cyber-card:hover {
+    @apply border-cyber-gold/30 bg-white/10;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
   }
   
   .cyber-card::before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber to-cyber-blue;
+    @apply absolute inset-0 bg-gradient-to-br from-cyber-gold/5 via-transparent to-cyber-blue/5 opacity-0 transition-opacity duration-300;
+  }
+  
+  .cyber-card:hover::before {
+    @apply opacity-100;
   }
   
   .cyber-button {
-    @apply inline-flex items-center justify-center rounded-md bg-cyber hover:bg-cyber-darkblue text-white font-medium px-5 py-2.5 transition-all shadow-md hover:shadow-lg;
+    @apply inline-flex items-center justify-center rounded-full bg-cyber-dark hover:bg-cyber-dark/80 text-white font-semibold px-8 py-3 transition-all duration-300 border border-white/20 hover:border-white/40;
   }
   
   .cyber-button-gold {
-    @apply inline-flex items-center justify-center rounded-md bg-cyber-gold hover:bg-amber-500 text-cyber font-bold px-5 py-2.5 transition-all shadow-md hover:shadow-lg;
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-cyber-dark font-bold px-8 py-3 transition-all duration-300 shadow-lg hover:shadow-amber-500/25;
+  }
+  
+  .cyber-button-outline {
+    @apply inline-flex items-center justify-center rounded-full bg-transparent border-2 border-white/30 hover:border-cyber-gold text-white hover:text-cyber-gold font-semibold px-8 py-3 transition-all duration-300;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-6 relative inline-block pb-3;
+    @apply text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight;
   }
   
-  .section-title::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-2/3 h-1 bg-cyber-gold rounded-full;
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl;
   }
   
   .container-custom {
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 60px rgba(30, 144, 255, 0.2);
+  }
+
+  /* Animated background grid */
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Partner logo animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 }
