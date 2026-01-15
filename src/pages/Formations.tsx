@@ -10,6 +10,7 @@ import { GraduationCap, Shield, Sparkles } from "lucide-react";
 
 const Formations: React.FC = () => {
   const [formations] = useState<FormationProps[]>([
+    // Cybersécurité
     {
       id: 1,
       title: "Analyste SOC - Blue Team",
@@ -18,63 +19,99 @@ const Formations: React.FC = () => {
       level: "Débutant",
       duration: "10 semaines",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Blue Team"
+      category: "Cybersécurité"
     },
     {
       id: 2,
-      title: "Pentesting Fondamental - Red Team",
+      title: "Pentesting & Ethical Hacking",
       description:
         "Découvrez les techniques d'attaque éthique pour mieux comprendre et anticiper les menaces. Pratique sur environnements réels et développement d'une méthodologie de test complète.",
       level: "Intermédiaire",
       duration: "12 semaines",
       image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Red Team"
+      category: "Cybersécurité"
     },
     {
       id: 3,
-      title: "Architecte Réseau Sécurisé",
-      description:
-        "Concevez et déployez des infrastructures réseau robustes et sécurisées pour les entreprises. Focus sur la sécurité by design et les bonnes pratiques d'architecture.",
-      level: "Avancé",
-      duration: "14 semaines",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Infrastructure"
-    },
-    {
-      id: 4,
-      title: "Cybersécurité pour débutants",
-      description:
-        "Introduction complète aux fondamentaux de la cybersécurité. Idéal pour les profils en reconversion ou les professionnels IT souhaitant élargir leurs compétences.",
-      level: "Débutant",
-      duration: "8 semaines",
-      image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Fondamentaux"
-    },
-    {
-      id: 5,
-      title: "Analyse de malware et rétro-ingénierie",
-      description:
-        "Apprenez à analyser des logiciels malveillants et à comprendre leur fonctionnement pour mieux vous en protéger. Techniques avancées de rétro-ingénierie.",
-      level: "Avancé",
-      duration: "10 semaines",
-      image: "https://images.unsplash.com/photo-1569078449082-d264d9e239c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Blue Team"
-    },
-    {
-      id: 6,
-      title: "Ethical Hacking avancé",
+      title: "Sécurité Offensive Avancée",
       description:
         "Pour les pentesters expérimentés souhaitant aller plus loin. Techniques avancées d'exploitation, attaques sur environnement réel et méthodes d'évasion.",
       level: "Avancé",
+      duration: "14 semaines",
+      image: "https://images.unsplash.com/photo-1569078449082-d264d9e239c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "Cybersécurité"
+    },
+    // Cloud
+    {
+      id: 4,
+      title: "Cloud Computing Fondamentaux",
+      description:
+        "Introduction complète aux services cloud AWS, Azure et GCP. Apprenez à déployer, gérer et sécuriser des infrastructures cloud modernes.",
+      level: "Débutant",
+      duration: "8 semaines",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "Cloud"
+    },
+    {
+      id: 5,
+      title: "Architecture Cloud & DevOps",
+      description:
+        "Concevez et déployez des architectures cloud scalables. Maîtrisez les pratiques DevOps, CI/CD et l'infrastructure as code avec Terraform et Kubernetes.",
+      level: "Intermédiaire",
       duration: "12 semaines",
-      image: "https://images.unsplash.com/photo-1483817101829-339b08e8d83f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-      category: "Red Team"
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "Cloud"
+    },
+    {
+      id: 6,
+      title: "Cloud Security Expert",
+      description:
+        "Sécurisez vos environnements cloud multi-cloud. Gestion des identités, conformité, audit de sécurité et réponse aux incidents cloud.",
+      level: "Avancé",
+      duration: "10 semaines",
+      image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "Cloud"
+    },
+    // Intelligence Artificielle
+    {
+      id: 7,
+      title: "Introduction à l'IA & Machine Learning",
+      description:
+        "Découvrez les fondamentaux de l'intelligence artificielle et du machine learning. Python, algorithmes de base et premiers modèles prédictifs.",
+      level: "Débutant",
+      duration: "10 semaines",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "IA"
+    },
+    {
+      id: 8,
+      title: "Deep Learning & Réseaux de Neurones",
+      description:
+        "Maîtrisez les réseaux de neurones profonds avec TensorFlow et PyTorch. Vision par ordinateur, NLP et déploiement de modèles en production.",
+      level: "Intermédiaire",
+      duration: "14 semaines",
+      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "IA"
+    },
+    {
+      id: 9,
+      title: "IA Générative & LLMs",
+      description:
+        "Explorez les modèles de langage avancés (GPT, Claude, LLaMA). Fine-tuning, prompt engineering et création d'applications IA innovantes.",
+      level: "Avancé",
+      duration: "12 semaines",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      category: "IA"
     }
   ]);
 
   const debutantFormations = formations.filter(f => f.level === "Débutant");
   const intermediaireFormations = formations.filter(f => f.level === "Intermédiaire");
   const avanceFormations = formations.filter(f => f.level === "Avancé");
+  
+  const cyberFormations = formations.filter(f => f.category === "Cybersécurité");
+  const cloudFormations = formations.filter(f => f.category === "Cloud");
+  const iaFormations = formations.filter(f => f.category === "IA");
 
   return (
     <Layout>
@@ -94,12 +131,12 @@ const Formations: React.FC = () => {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-white">Formations en </span>
-              <span className="gradient-text-gold">Cybersécurité</span>
+              <span className="gradient-text-gold">Cybersécurité, Cloud & IA</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Des programmes de formation pratiques et concrets pour maîtriser les compétences 
-              essentielles en cybersécurité et accélérer votre carrière.
+              essentielles en cybersécurité, cloud computing et intelligence artificielle.
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">
@@ -126,8 +163,8 @@ const Formations: React.FC = () => {
           />
 
           <Tabs defaultValue="all" className="w-full mt-8">
-            <div className="flex justify-center mb-8">
-              <TabsList className="bg-cyber-dark/50 border border-cyber-gold/20">
+            <div className="flex justify-center mb-8 flex-wrap gap-2">
+              <TabsList className="bg-cyber-dark/50 border border-cyber-gold/20 flex-wrap h-auto">
                 <TabsTrigger 
                   value="all" 
                   className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-gray-300"
@@ -135,22 +172,22 @@ const Formations: React.FC = () => {
                   Tous
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="debutant"
+                  value="cyber"
                   className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-gray-300"
                 >
-                  Débutant
+                  🛡️ Cybersécurité
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="intermediaire"
+                  value="cloud"
                   className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-gray-300"
                 >
-                  Intermédiaire
+                  ☁️ Cloud
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="avance"
+                  value="ia"
                   className="data-[state=active]:bg-cyber-gold data-[state=active]:text-cyber-dark text-gray-300"
                 >
-                  Avancé
+                  🤖 IA
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -163,25 +200,25 @@ const Formations: React.FC = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="debutant" className="mt-6">
+            <TabsContent value="cyber" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {debutantFormations.map((formation) => (
+                {cyberFormations.map((formation) => (
                   <FormationCard key={formation.id} {...formation} />
                 ))}
               </div>
             </TabsContent>
 
-            <TabsContent value="intermediaire" className="mt-6">
+            <TabsContent value="cloud" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {intermediaireFormations.map((formation) => (
+                {cloudFormations.map((formation) => (
                   <FormationCard key={formation.id} {...formation} />
                 ))}
               </div>
             </TabsContent>
 
-            <TabsContent value="avance" className="mt-6">
+            <TabsContent value="ia" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {avanceFormations.map((formation) => (
+                {iaFormations.map((formation) => (
                   <FormationCard key={formation.id} {...formation} />
                 ))}
               </div>
