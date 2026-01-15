@@ -35,7 +35,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logoLegrandsup} 
-              alt="LegrandSup Logo" 
+              alt="Académie Cyber & Réseaux Logo" 
               className="w-12 h-12 rounded-full shadow-lg group-hover:shadow-amber-500/25 transition-shadow"
             />
             <div className="hidden sm:block">

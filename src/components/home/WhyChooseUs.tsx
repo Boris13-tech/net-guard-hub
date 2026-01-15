@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
             Au croisement de la tech et de l'humain
           </p>
           <h2 className="section-title text-white">
-            Pourquoi choisir <span className="gradient-text-gold">LegrandSup</span> ?
+            Pourquoi choisir <span className="gradient-text-gold">l'Académie Cyber & Réseaux</span> ?
           </h2>
         </div>
 

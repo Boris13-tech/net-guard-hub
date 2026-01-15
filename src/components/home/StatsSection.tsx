@@ -41,7 +41,7 @@ const StatsSection = () => {
         <div className="text-center">
           <Link to="/contact">
             <Button className="cyber-button-gold text-lg px-10 py-6">
-              Rejoindre LegrandSup
+              Rejoindre l'Académie
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
