@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const stats = [
-  { value: "4,5", suffix: "Md €", label: "Marché français de la cybersécurité en 2024" },
-  { value: "+30", suffix: "", label: "Métiers différents dans le secteur" },
-  { value: "40-55K€", suffix: "/an", label: "Fourchette salariale d'un pentester débutant" },
-  { value: "+125K", suffix: "", label: "Offres d'emploi en Europe" }
+  { value: "6-12", suffix: " mois", label: "Durée des formations" },
+  { value: "+90%", suffix: "", label: "Taux d'insertion professionnelle" },
+  { value: "40-55K€", suffix: "/an", label: "Salaire moyen à l'embauche" },
+  { value: "+500", suffix: "", label: "Apprenants formés" }
 ];
 
 const StatsSection = () => {
@@ -19,11 +19,11 @@ const StatsSection = () => {
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <p className="text-cyber-gold uppercase tracking-wider text-sm font-semibold mb-4">
-            Vous faites le bon choix
+            Des résultats concrets
           </p>
           <h2 className="section-title text-white">
-            <span className="gradient-text-gold">+125 000</span> offres d'emploi
-            <br />en Europe
+            <span className="gradient-text-gold">+90%</span> de nos apprenants
+            <br />trouvent un emploi
           </h2>
         </div>
 
@@ -41,7 +41,7 @@ const StatsSection = () => {
         <div className="text-center">
           <Link to="/contact">
             <Button className="cyber-button-gold text-lg px-10 py-6">
-              Candidater maintenant
+              Rejoindre LegrandSup
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

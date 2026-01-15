@@ -9,23 +9,23 @@ import {
 const faqs = [
   {
     question: "Quels sont les prérequis pour intégrer LegrandSup ?",
-    answer: "Pour le Bachelor, un Bac+2 en informatique ou équivalent. Pour les Mastères, un Bac+3 minimum. Une forte motivation pour la cybersécurité est essentielle."
+    answer: "Nos formations sont accessibles à partir du niveau Bac. Une appétence pour l'informatique et la sécurité est recommandée. Certaines formations avancées nécessitent des bases en réseaux ou programmation."
   },
   {
-    question: "Les formations sont-elles disponibles en alternance ?",
-    answer: "Oui, toutes nos formations sont proposées en alternance. Nous accompagnons également nos étudiants dans leur recherche d'entreprise."
+    question: "Quelle est la durée des formations ?",
+    answer: "Nos programmes varient de 6 à 12 mois selon la spécialisation choisie. Toutes nos formations sont intensives et orientées pratique pour vous rendre opérationnel rapidement."
+  },
+  {
+    question: "Les formations sont-elles certifiantes ?",
+    answer: "Oui, nos formations préparent aux certifications professionnelles reconnues (CompTIA Security+, CEH, OSCP...) et délivrent une attestation de compétences valorisée par les entreprises."
   },
   {
     question: "Quels sont les débouchés après LegrandSup ?",
-    answer: "Analyste SOC, Pentester, Consultant en sécurité, DPO, Architecte sécurité, Chef de projet IA... Plus de 30 métiers accessibles avec des salaires attractifs."
+    answer: "Analyste SOC, Pentester, Administrateur sécurité, Consultant cybersécurité, Ingénieur réseau... Plus de 90% de nos apprenants trouvent un emploi dans les 3 mois suivant la formation."
   },
   {
-    question: "Les titres sont-ils reconnus par l'État ?",
-    answer: "Oui, nos titres sont certifiés RNCP niveau 6 (Bachelor) et niveau 7 (Mastères), reconnus par l'État et les entreprises."
-  },
-  {
-    question: "Comment se déroule le processus d'admission ?",
-    answer: "Candidature en ligne, tests techniques et entretien de motivation. Nous évaluons votre potentiel et votre projet professionnel."
+    question: "Comment financer ma formation ?",
+    answer: "Plusieurs options : CPF, financement personnel avec facilités de paiement, Pôle Emploi, OPCO pour les salariés. Contactez-nous pour étudier votre situation."
   }
 ];
 
