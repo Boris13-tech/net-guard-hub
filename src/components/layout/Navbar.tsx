@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Shield, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoLegrandsup from "@/assets/logo-legrandsup.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,12 +33,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-cyber-gold to-amber-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-amber-500/25 transition-shadow">
-              <Shield className="w-7 h-7 text-cyber-dark" />
-            </div>
+            <img 
+              src={logoLegrandsup} 
+              alt="LegrandSup Logo" 
+              className="w-12 h-12 rounded-full shadow-lg group-hover:shadow-amber-500/25 transition-shadow"
+            />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-white leading-none">LEGRANDSUP</h1>
-              <span className="text-xs text-white/60">Cybersécurité & IA</span>
+              <span className="text-xs text-white/60">Académie Cyber & Réseaux</span>
             </div>
           </Link>
 
