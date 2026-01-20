@@ -44,6 +44,60 @@ export type Database = {
         }
         Relationships: []
       }
+      formations: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          duration: string
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          is_featured: boolean | null
+          level: string
+          objectives: string[] | null
+          prerequisites: string[] | null
+          price: number | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          duration: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          level: string
+          objectives?: string[] | null
+          prerequisites?: string[] | null
+          price?: number | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          is_featured?: boolean | null
+          level?: string
+          objectives?: string[] | null
+          prerequisites?: string[] | null
+          price?: number | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
