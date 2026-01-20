@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageSquare, Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ContactFormProps {
   formType?: "contact" | "inscription";
@@ -18,21 +19,52 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const message = formData.get("message") as string;
+    const formation = formData.get("formation") as string;
+    
+    const subject = formType === "inscription" 
+      ? `Demande d'inscription - ${formation || 'Formation'}` 
+      : "Demande de contact";
+
+    try {
+      const { error } = await supabase
+        .from("contact_messages")
+        .insert({
+          name: `${firstName} ${lastName}`.trim(),
+          email,
+          phone: phone || null,
+          subject,
+          message,
+        });
+
+      if (error) throw error;
+
       toast({
         title: "Message envoyé",
         description: "Nous vous répondrons dans les plus brefs délais.",
       });
-      // Reset form
-      const form = e.target as HTMLFormElement;
       form.reset();
-    }, 1500);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,6 +86,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="text"
                 id="firstName"
+                name="firstName"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
               />
@@ -65,6 +98,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="text"
                 id="lastName"
+                name="lastName"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
               />
@@ -80,6 +114,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 className="w-full pl-10 px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
               />
@@ -95,6 +130,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <input
                 type="tel"
                 id="phone"
+                name="phone"
                 className="w-full pl-10 px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
               />
             </div>
@@ -107,6 +143,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </label>
               <select
                 id="formation"
+                name="formation"
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
               >
@@ -128,6 +165,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               <MessageSquare className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
               <textarea
                 id="message"
+                name="message"
                 rows={5}
                 required
                 className="w-full pl-10 px-4 py-2 border border-gray-300 rounded-md focus:ring-cyber focus:border-cyber"
