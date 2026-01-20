@@ -32,14 +32,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    // Set up auth state listener
+    // Set up auth state listener - NEVER use async directly in callback to prevent deadlock
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      (event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
         
+        // Defer Supabase calls with setTimeout to prevent deadlock
         if (session?.user) {
-          await checkAdminRole(session.user.id);
+          setTimeout(() => {
+            checkAdminRole(session.user.id);
+          }, 0);
         } else {
           setIsAdmin(false);
         }
@@ -49,12 +52,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     );
 
     // Check initial session
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       
       if (session?.user) {
-        await checkAdminRole(session.user.id);
+        checkAdminRole(session.user.id);
       }
       
       setLoading(false);
@@ -69,7 +72,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const signUp = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signUp({ email, password });
+    const redirectUrl = `${window.location.origin}/`;
+    const { error } = await supabase.auth.signUp({ 
+      email, 
+      password,
+      options: {
+        emailRedirectTo: redirectUrl
+      }
+    });
     return { error: error as Error | null };
   };
 
