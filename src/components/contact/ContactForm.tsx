@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MessageSquare, Send, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -17,6 +18,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   subtitle = "Nous sommes là pour répondre à vos questions et vous accompagner dans votre parcours.",
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const { toast } = useToast();
   
   const handleSubmit = async (e: React.FormEvent) => {
@@ -174,24 +176,29 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           </div>
           
-          <div className="mb-4">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                required
-                className="w-4 h-4 text-cyber focus:ring-cyber rounded"
+          <div className="mb-6">
+            <div className="flex items-start space-x-3">
+              <Checkbox
+                id="acceptTerms"
+                checked={acceptedTerms}
+                onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
+                className="mt-1"
               />
-              <span className="ml-2 text-sm text-gray-600">
+              <label htmlFor="acceptTerms" className="text-sm text-gray-600 cursor-pointer">
                 J'accepte que mes données soient traitées conformément à la{" "}
                 <a href="/confidentialite" className="text-cyber hover:underline">
                   politique de confidentialité
                 </a>
                 .
-              </span>
-            </label>
+              </label>
+            </div>
           </div>
           
-          <Button type="submit" className="cyber-button w-full" disabled={isSubmitting}>
+          <Button 
+            type="submit" 
+            className="cyber-button w-full" 
+            disabled={isSubmitting || !acceptedTerms}
+          >
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -204,6 +211,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </>
             )}
           </Button>
+          
+          {!acceptedTerms && (
+            <p className="text-xs text-muted-foreground text-center mt-2">
+              Veuillez accepter la politique de confidentialité pour envoyer le message.
+            </p>
+          )}
         </form>
       </div>
     </div>
