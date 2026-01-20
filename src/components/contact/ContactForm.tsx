@@ -177,20 +177,36 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </div>
           
           <div className="mb-6">
-            <div className="flex items-start space-x-3">
+            <div
+              className="flex items-start gap-3"
+              role="button"
+              tabIndex={0}
+              onClick={() => setAcceptedTerms((v) => !v)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setAcceptedTerms((v) => !v);
+                }
+              }}
+            >
               <Checkbox
                 id="acceptTerms"
                 checked={acceptedTerms}
                 onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
                 className="mt-1"
+                aria-label="Accepter la politique de confidentialité"
               />
-              <label htmlFor="acceptTerms" className="text-sm text-gray-600 cursor-pointer">
+              <p className="text-sm text-gray-600 cursor-pointer">
                 J'accepte que mes données soient traitées conformément à la{" "}
-                <a href="/confidentialite" className="text-cyber hover:underline">
+                <a
+                  href="/confidentialite"
+                  className="text-cyber hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   politique de confidentialité
                 </a>
                 .
-              </label>
+              </p>
             </div>
           </div>
           
